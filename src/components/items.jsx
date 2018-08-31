@@ -1,16 +1,47 @@
 import React, { Component } from "react";
+import faker from "faker";
 
 class Items extends Component {
   state = {
-    priority: "High",
-    description: "Broken Bank",
-    owner: "Chris",
-    creationDate: "Aug 31st",
-    dueDate: "Dec 5th",
-    completionDate: "Incomplete",
-    status: "In progress",
-    updates: "Making a budget"
+    items: [
+      { priority: "High",
+      description: "Broken Bank",
+      owner: "Chris",
+      creationDate: "Aug 31st",
+      dueDate: "Dec 5th",
+      completionDate: "Incomplete",
+      status: "In progress",
+      updates: "Making a budget"
+    },
+      { priority: "High",
+      description: "Broken Bank",
+      owner: "Chris",
+      creationDate: "Aug 31st",
+      dueDate: "Dec 5th",
+      completionDate: "Incomplete",
+      status: "In progress",
+      updates: "Making a budget"
+    },
+      { priority: "High",
+      description: "Broken Bank",
+      owner: "Chris",
+      creationDate: "Aug 31st",
+      dueDate: "Dec 5th",
+      completionDate: "Incomplete",
+      status: "In progress",
+      updates: "Making a budget"
+    },
+      { priority: "High",
+      description: "Broken Bank",
+      owner: "Chris",
+      creationDate: "Aug 31st",
+      dueDate: "Dec 5th",
+      completionDate: "Incomplete",
+      status: "In progress",
+      updates: "Making a budget" }
+    ]
   };
+
 
   render() {
     const {
@@ -37,61 +68,23 @@ class Items extends Component {
             <th scope="col">Status</th>
             <th scope="col">Updates</th>
           </tr>
-        </thead>
-        <tbody>
-          <tr className="table-danger">
-            <td>{priority}</td>
-            <td>{description}</td>
-            <td>{owner}</td>
-            <td>{creationDate}</td>
-            <td>{dueDate}</td>
-            <td>{completionDate}</td>
-            <td>{status}</td>
-            <td>{updates}</td>
-          </tr>
-          <tr className="">
-            <td>{priority}</td>
-            <td>{description}</td>
-            <td>{owner}</td>
-            <td>{creationDate}</td>
-            <td>{dueDate}</td>
-            <td>{completionDate}</td>
-            <td>{status}</td>
-            <td>{updates}</td>
-          </tr>
-          <tr className="">
-            <td>{priority}</td>
-            <td>{description}</td>
-            <td>{owner}</td>
-            <td>{creationDate}</td>
-            <td>{dueDate}</td>
-            <td>{completionDate}</td>
-            <td>{status}</td>
-            <td>{updates}</td>
-          </tr>
-          <tr className="">
-            <td>{priority}</td>
-            <td>{description}</td>
-            <td>{owner}</td>
-            <td>{creationDate}</td>
-            <td>{dueDate}</td>
-            <td>{completionDate}</td>
-            <td>{status}</td>
-            <td>{updates}</td>
-          </tr>
-          <tr className="">
-            <td>{priority}</td>
-            <td>{description}</td>
-            <td>{owner}</td>
-            <td>{creationDate}</td>
-            <td>{dueDate}</td>
-            <td>{completionDate}</td>
-            <td>{status}</td>
-            <td>{updates}</td>
-          </tr>
-        </tbody>
+          </thead>
+          <tbody>
+            {this.state.items.map(item =>(
+            <tr>
+              <td>{item.priority}</td>
+              <td>{item.description}</td>
+              <td>{item.owner}</td>
+              <td>{item.creationDate}</td>
+              <td>{item.dueDate}</td>
+              <td>{item.completionDate}</td>
+              <td>{item.status}</td>
+              <td>{item.updates}</td>
+            </tr>
+            ))};
+          </tbody>
       </table>
-    );
+      );
   }
 }
 
