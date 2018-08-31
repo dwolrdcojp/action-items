@@ -7,38 +7,38 @@ class Items extends Component {
       { priority: "High",
       description: "Broken Bank",
       owner: "Chris",
-      creationDate: "Aug 31st",
-      dueDate: "Dec 5th",
+      creationDate: "Aug 1st",
+      dueDate: "Dec 4th",
       completionDate: "Incomplete",
       status: "In progress",
       updates: "Making a budget"
     },
-      { priority: "High",
-      description: "Broken Bank",
-      owner: "Chris",
+      { priority: "Medium",
+      description: "Car parts from Japan",
+      owner: "Max",
+      creationDate: "Aug 3rd",
+      dueDate: "Dec 5th",
+      completionDate: "Incomplete",
+      status: "In progress",
+      updates: "Making fake data"
+    },
+      { priority: "Low",
+      description: "Gamblin'",
+      owner: "Kevin",
       creationDate: "Aug 31st",
       dueDate: "Dec 5th",
       completionDate: "Incomplete",
       status: "In progress",
-      updates: "Making a budget"
+      updates: "Data boys"
     },
       { priority: "High",
-      description: "Broken Bank",
+      description: "Million $ deals",
       owner: "Chris",
       creationDate: "Aug 31st",
-      dueDate: "Dec 5th",
+      dueDate: "Jan 5th",
       completionDate: "Incomplete",
       status: "In progress",
-      updates: "Making a budget"
-    },
-      { priority: "High",
-      description: "Broken Bank",
-      owner: "Chris",
-      creationDate: "Aug 31st",
-      dueDate: "Dec 5th",
-      completionDate: "Incomplete",
-      status: "In progress",
-      updates: "Making a budget" }
+      updates: "Microdose" }
     ]
   };
 
