@@ -1,13 +1,12 @@
 {
   "name": "action-items",
   "version": "0.1.0",
-  "homepage": "https://github.com/dwolrdcojp/action-items",
+  "homepage": "https://dwolrdcojp.github.io/action-items",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.3",
     "gh-pages": "^1.2.0",
     "react": "^16.4.2",
-    "react-bootstrap": "^0.32.3",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.5"
   },
