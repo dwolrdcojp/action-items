@@ -4,7 +4,8 @@ import faker from "faker";
 class Items extends Component {
   state = {
     items: [
-      { priority: "High",
+      { _id: 1,
+      priority: "High",
       description: "Broken Bank",
       owner: "Chris",
       creationDate: "Aug 1st",
@@ -13,7 +14,8 @@ class Items extends Component {
       status: "In progress",
       updates: "Making a budget"
     },
-      { priority: "Medium",
+      { _id: 2,
+      priority: "Medium",
       description: "Car parts from Japan",
       owner: "Max",
       creationDate: "Aug 3rd",
@@ -22,7 +24,8 @@ class Items extends Component {
       status: "In progress",
       updates: "Making fake data"
     },
-      { priority: "Low",
+      { _id: 3,
+      priority: "Low",
       description: "Gamblin'",
       owner: "Kevin",
       creationDate: "Aug 31st",
@@ -31,7 +34,8 @@ class Items extends Component {
       status: "In progress",
       updates: "Data boys"
     },
-      { priority: "High",
+      { _id: 4,
+      priority: "High",
       description: "Million $ deals",
       owner: "Chris",
       creationDate: "Aug 31st",
@@ -40,6 +44,11 @@ class Items extends Component {
       status: "In progress",
       updates: "Microdose" }
     ]
+  };
+
+  handleDelete = (item) => {
+    const items = this.state.items.filter(i => i._id !== item._id);
+    this.setState( {items} );
   };
 
 
@@ -55,7 +64,14 @@ class Items extends Component {
       updates
     } = this.state;
 
+    const { length: count } = this.state.items; 
+
+    if (count === 0)
+      return <p>There are no action items in the database.</p>;
+
     return (
+      <React.Fragment>
+      <p>Showing {count} action items in the database.</p>
       <table className="table table-hover">
         <thead>
           <tr>
@@ -67,11 +83,12 @@ class Items extends Component {
             <th scope="col">Completion Date</th>
             <th scope="col">Status</th>
             <th scope="col">Updates</th>
+            <th scope="col"></th>
           </tr>
           </thead>
           <tbody>
             {this.state.items.map(item =>(
-            <tr>
+            <tr key={item._id}>
               <td>{item.priority}</td>
               <td>{item.description}</td>
               <td>{item.owner}</td>
@@ -80,10 +97,12 @@ class Items extends Component {
               <td>{item.completionDate}</td>
               <td>{item.status}</td>
               <td>{item.updates}</td>
+              <td><button onClick={() => this.handleDelete(item)} className="btn btn-danger btn-sm">Delete</button></td>
             </tr>
             ))};
           </tbody>
       </table>
+      </React.Fragment>
       );
   }
 }
