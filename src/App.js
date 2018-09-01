@@ -6,6 +6,17 @@ import ItemForm from "./components/itemForm";
 
 class App extends Component {
   state = {
+    item: {
+      _id: "",
+      priority: "",
+      description: "",
+      owner: "",
+      creationDate: "",
+      dueDate: "",
+      completionDate: "",
+      status: "",
+      updates: ""
+    },
     items: [
       { _id: 1,
       priority: "High",
@@ -49,20 +60,36 @@ class App extends Component {
     ]
   };
 
+  handleChange = ({ currentTarget: input }) => {
+    const item = { ...this.state.item };
+    item[input.name] = input.value;
+    this.setState({ item });
+  };
+
   handleDelete = (item) => {
     const items = this.state.items.filter(i => i._id !== item._id);
     this.setState( {items} );
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const items = this.state.items
+    const item = this.state.item
+    const combined = items.push(item);
+    this.setState({combined});
+  };
 
   render() {
     return (
       <main className="Container">
         <Header />
-        <ItemForm />
         <Items 
         items={this.state.items}
         onDelete={this.handleDelete}/>
+        <ItemForm 
+        item={this.state.item}
+        onChange={this.handleChange}
+        onSubmit={this.handleSubmit}/>
       </main>
     );
   }
