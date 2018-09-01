@@ -2,55 +2,6 @@ import React, { Component } from "react";
 import faker from "faker";
 
 class Items extends Component {
-  state = {
-    items: [
-      { _id: 1,
-      priority: "High",
-      description: "Broken Bank",
-      owner: "Chris",
-      creationDate: "Aug 1st",
-      dueDate: "Dec 4th",
-      completionDate: "Incomplete",
-      status: "In progress",
-      updates: "Making a budget"
-    },
-      { _id: 2,
-      priority: "Medium",
-      description: "Car parts from Japan",
-      owner: "Max",
-      creationDate: "Aug 3rd",
-      dueDate: "Dec 5th",
-      completionDate: "Incomplete",
-      status: "In progress",
-      updates: "Making fake data"
-    },
-      { _id: 3,
-      priority: "Low",
-      description: "Gamblin'",
-      owner: "Kevin",
-      creationDate: "Aug 31st",
-      dueDate: "Dec 5th",
-      completionDate: "Incomplete",
-      status: "In progress",
-      updates: "Data boys"
-    },
-      { _id: 4,
-      priority: "High",
-      description: "Million $ deals",
-      owner: "Chris",
-      creationDate: "Aug 31st",
-      dueDate: "Jan 5th",
-      completionDate: "Incomplete",
-      status: "In progress",
-      updates: "Microdose" }
-    ]
-  };
-
-  handleDelete = (item) => {
-    const items = this.state.items.filter(i => i._id !== item._id);
-    this.setState( {items} );
-  };
-
 
   render() {
     const {
@@ -62,9 +13,9 @@ class Items extends Component {
       completionDate,
       status,
       updates
-    } = this.state;
+    } = this.props.items;
 
-    const { length: count } = this.state.items; 
+    const { length: count } = this.props.items; 
 
     if (count === 0)
       return <p>There are no action items in the database.</p>;
@@ -87,7 +38,7 @@ class Items extends Component {
           </tr>
           </thead>
           <tbody>
-            {this.state.items.map(item =>(
+            {this.props.items.map(item =>(
             <tr key={item._id}>
               <td>{item.priority}</td>
               <td>{item.description}</td>
@@ -97,7 +48,7 @@ class Items extends Component {
               <td>{item.completionDate}</td>
               <td>{item.status}</td>
               <td>{item.updates}</td>
-              <td><button onClick={() => this.handleDelete(item)} className="btn btn-danger btn-sm">Delete</button></td>
+              <td><button onClick={() => this.props.onDelete(item)} className="btn btn-danger btn-sm">Delete</button></td>
             </tr>
             ))};
           </tbody>
